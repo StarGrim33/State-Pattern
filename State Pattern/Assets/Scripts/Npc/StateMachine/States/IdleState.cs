@@ -4,7 +4,7 @@ public class IdleState : IStateSwitcher
 {
     private StateMachine _machine;
     private float _duration = 5f;
-    private float _timer;
+    private float _time;
 
     public IdleState(StateMachine machine)
     {
@@ -23,11 +23,9 @@ public class IdleState : IStateSwitcher
 
     public void Update()
     {
-        _timer += Time.deltaTime;
+        _time += Time.deltaTime;
 
-        if(_timer > _duration)
-        {
+        if(_time > _duration)
             _machine.SetMovementState();
-        }
     }
 }

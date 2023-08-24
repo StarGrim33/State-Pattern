@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WorkState : IStateSwitcher
 {
-    private StateMachine _machine;
+    private readonly StateMachine _machine;
 
     public WorkState(StateMachine machine)
     {

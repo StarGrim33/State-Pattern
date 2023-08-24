@@ -3,9 +3,9 @@ using UnityEngine;
 
 public class MovementState : IStateSwitcher
 {
-    private StateMachine _machine;
-    private List<Transform> _movePoints;
-    private Transform _npcTransform;
+    private readonly StateMachine _machine;
+    private readonly List<Transform> _movePoints;
+    private readonly Transform _npcTransform;
     private Transform _lastPoint;
     private int _currentPointIndex = 0;
 
@@ -36,6 +36,7 @@ public class MovementState : IStateSwitcher
             if (Vector3.Distance(_npcTransform.position, _lastPoint.position) < 0.01f)
             {
                 _currentPointIndex++;
+
                 if (_currentPointIndex >= _movePoints.Count)
                 {
                     _currentPointIndex = 0;

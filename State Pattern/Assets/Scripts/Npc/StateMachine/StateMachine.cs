@@ -8,11 +8,9 @@ public class StateMachine : MonoBehaviour
 
     private Dictionary<Type, IStateSwitcher> _states;
     private IStateSwitcher _currentState;
-    private Transform _transform;
 
     private void Start()
     {
-        _transform = GetComponent<Transform>();
         Init();
         SetBehaviourByDefault();
     }
@@ -27,7 +25,7 @@ public class StateMachine : MonoBehaviour
         _states = new Dictionary<Type, IStateSwitcher>
         {
             [typeof(IdleState)] = new IdleState(this),
-            [typeof(MovementState)] = new MovementState(_movementPoints, _transform, this),
+            [typeof(MovementState)] = new MovementState(_movementPoints, transform, this),
             [typeof(WorkState)] = new WorkState(this)
         };
     }
